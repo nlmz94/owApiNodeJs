@@ -1,18 +1,18 @@
-const Anime = require("../models/anime.model.js");
+const Article = require('../models/article.model.js');
 
 exports.findAll = (req, res) => {
-    Anime.getAll((err, data) => {
+    Article.findAll((err, data) => {
         if (err)
             res.status(500).send({
                 message:
                     err.message || "Some error occurred while retrieving customers."
             });
         else res.send(data);
-    });
-};
+    })
+}
 
-exports.findOne = (req, res) => {
-    Anime.findById(req.params.id, (err, data) => {
+exports.findById = (req, res) => {
+    Article.findById(req.params.id, (err, data) => {
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
@@ -24,5 +24,5 @@ exports.findOne = (req, res) => {
                 });
             }
         } else res.send(data);
-    });
-};
+    })
+}
