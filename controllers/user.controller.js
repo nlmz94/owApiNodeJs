@@ -8,7 +8,6 @@ exports.findById = (req, res) => {
           message: `Not found Customer with id ${req.params.id}.`,
         });
       } else {
-        console.log(err);
         res.status(500).send({
           message: "Error retrieving Anime with id " + req.params.id,
         });
@@ -25,9 +24,8 @@ exports.findByUsername = (req, res) => {
           message: `Not found User with id ${req.params.username}.`,
         });
       } else {
-        console.log(err);
         res.status(500).send({
-          message: "Error hhhhhh User with id " + req.params.username,
+          message: "Error User with id " + req.params.username,
         });
       }
     } else res.send(data);
